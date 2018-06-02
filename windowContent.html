@@ -1,0 +1,46 @@
+<!--
+
+	print contents of current window .
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Print contents of current window </title>
+	<style type="text/css">
+		div{
+			position: absolute;
+			color: black;
+			font-size: 50px;
+			left:50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<div> Hey, Learning Javascript.<br></div>
+	<script type="text/javascript">
+
+		function printText(){
+			window.print();
+		}
+
+		window.onload = function() {
+
+			var div = document.getElementsByTagName("div");
+
+			var button = document.createElement("input");
+			button.setAttribute("type","button");
+			button.setAttribute("value","Print this page.");
+
+			div[0].appendChild(button);
+
+			button.onclick = function() {
+					printText();
+			}
+
+		}
+	</script>
+</body>
+</html>

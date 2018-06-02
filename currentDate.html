@@ -1,0 +1,54 @@
+<!--
+
+	print current date.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Current Date </title>
+	<style type="text/css">
+		div{
+			position: absolute;
+			color: black;
+			font-size: 50px;
+			left:50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<div id="date">Today's date in different formats:<br></div>
+	<script type="text/javascript">
+		window.onload = function() {
+
+			var div = document.getElementById('date');
+
+			var today = new Date;
+
+			//var month = ["January","February","March","April","May","June","July","August","September"]
+
+			var d = today.getDate()
+			var m = today.getMonth()
+			var y = today.getFullYear();
+
+			if(d<10){
+				d='0'+d;
+			}
+			if(m<10){
+				m='0'+m;
+			}
+
+			message1 = d+"/"+m+"/"+y+"\n";
+			message2 = y+"/"+m+"/"+d+"\n";
+			message3 = d+"-"+m+"-"+y+"\n";
+			message4 = y+"-"+m+"-"+d+"\n";
+
+			message = message1+message2+message3+message4;
+			var text = document.createTextNode(message);
+			div.appendChild(text);
+		}
+	</script>
+</body>
+</html>

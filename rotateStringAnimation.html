@@ -1,0 +1,54 @@
+<!--
+
+	Basic Javascript Animation to rotate the string.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rotate String Animation</title>
+	<style type="text/css">
+		div{
+			position: absolute;
+			color: black;
+			font-size: 50px;
+			left:50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="inputArea"></div>
+	<div id="text"></div>
+	<script type="text/javascript">
+		window.onload = function() {
+
+
+			var inputArea = document.getElementsByClassName('inputArea')[0];
+
+			var input = document.createElement("input");
+			input.setAttribute("type","text");
+			input.setAttribute("id","min")
+			inputArea.appendChild(input);
+
+			var button = document.createElement("input");
+			button.setAttribute("type","button");
+			button.setAttribute("value","Reverse");
+			inputArea.appendChild(button);
+			
+			
+			button.onclick = function(){
+				inputArea.style.display="none";
+				var text = input.value;
+				var rotatingString = document.createTextNode(text);
+				document.getElementById('text').appendChild(rotatingString);
+				var Interval = setInterval(()=>{
+					text = text[text.length-1]+text.substring(0,text.length-1);
+					rotatingString.data=text;
+				},500);
+			}
+		}
+	</script>
+</body>
+</html>

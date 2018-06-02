@@ -1,0 +1,43 @@
+<!--
+
+	print current day and time.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Current Date and Time </title>
+	<style type="text/css">
+		div{
+			position: absolute;
+			color: black;
+			font-size: 50px;
+			left:50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<div id="date"></div>
+	<script type="text/javascript">
+		window.onload = function() {
+
+			var div = document.getElementById('date');
+
+			var today = new Date;
+			var day = ["Sunday" , "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday"];
+
+
+			messageDay = "Today is "+day[today.getDay()]+".<br>";
+
+			messageTime = "Current Time is "+today.getHours()+" : "+today.getMinutes()+" : "+today.getSeconds()+" .";
+
+			message = messageDay+messageTime;
+
+			var text = document.createTextNode(message);
+			div.appendChild(text);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!-- URL of Current Page -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Current Page URL</title>
+	<style type="text/css">
+		.inputArea{
+			position: absolute;
+			left: 50%;
+			top:100px;
+			transform: translateX(-60%);
+			
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="inputArea">
+		<div class="hide"></div>
+	</div>
+	<script type="text/javascript">
+		
+		window.onload = function() {
+			var inputArea = document.getElementsByClassName('inputArea')[0];
+			var hide = document.getElementsByClassName('hide')[0];
+			hide.style.display="none";
+
+			var input = document.createElement("input");
+			input.setAttribute("type","text");
+			input.setAttribute("id","min")
+			inputArea.appendChild(input);
+
+			var button = document.createElement("input");
+			button.setAttribute("type","button");
+			button.setAttribute("value","Find Extension");
+			inputArea.appendChild(button);
+
+			var button1 = document.createElement("input");
+			button1.setAttribute("type","button");
+			button1.setAttribute("value","Reset");
+			inputArea.appendChild(button1);			
+
+			button.onclick = function(){
+				var file = input.value; 
+				var extension = file.split('.').pop();
+				hide.style.display="block";
+				hide.innerHTML="The extension of "+file+" is "+extension;
+			}
+
+			button1.onclick = function(){
+				hide.style.display="none";
+				input.innerHTML="";
+			}
+		}
+
+	</script>
+</body>
+</html>

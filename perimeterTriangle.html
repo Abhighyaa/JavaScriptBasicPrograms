@@ -1,0 +1,83 @@
+<!--
+
+	Perimeter Of Triangle
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Area of Triangle</title>
+	<style type="text/css">
+		.div{
+			position: absolute;
+			color: black;
+			font-size: 30px;
+			left:50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+			vertical-align: center;
+			text-align: center;
+		}
+		fieldset{
+			padding: 50px;
+
+		}
+		#hide{
+			padding: 10px;
+			padding-bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="div">
+		<form>
+			<fieldset>
+				<legend>Perimeter</legend>
+				<label>First Side   </label><br>
+				<input type="text" name="first"><br>
+				<label>Second Side </label><br>
+				<input type="text" name="second"><br>
+				<label>Third Side </label><br>
+				<input type="text" name="third"><br>
+				<button type="button" id="area">Calculate Perimeter</button>
+				<button type="button" id="reset">Reset</button>
+				<div id="hide"></div>
+			</fieldset>
+		</form>
+	</div>
+	<script type="text/javascript">
+		window.onload = function() {
+
+			var div = document.getElementById('hide');
+			div.style.display="none";
+			var fieldset = document.getElementsByTagName('fieldset')[0];
+			var side = fieldset.getElementsByTagName('input');
+
+			var area = document.getElementById('area');
+
+			area.onclick = function(){
+
+				var div = document.getElementById('hide');
+				
+				var perimeter = Number(side[0].value) + Number(side[1].value) + Number(side[2].value);
+				perimeter = "The perimeter is "+perimeter+"."; 
+				
+				div.style.display="block";
+				div.innerHTML=perimeter;
+				
+			}
+
+			var reset = document.getElementById("reset");
+
+			reset.onclick = function(){
+
+				side[0].value="";
+				side[1].value="";
+				side[2].value="";
+				div.style.display="none";
+			}
+
+		}
+	</script>
+</body>
+</html>
